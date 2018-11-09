@@ -10,7 +10,7 @@
 /interface bridge port add bridge=bridge interface=ether3
 /interface bridge port add bridge=bridge interface=ether4
 /interface bridge port add bridge=bridge interface=ether5
-/ip dhcp-server network add address=192.168.3.0/24 gateway=192.168.3.1 dns-server=192.168.3.1
+/ip dhcp-server network add address=192.168.3.0/24 gateway=192.168.3.1 dns-server=192.168.3.1 domain=lan
 /ip pool add name=pool ranges=192.168.3.100-192.168.3.200
 /ip dhcp-server add name=dhcp address-pool=pool interface=bridge disabled=no
 /ip address add address=192.168.3.1/24 interface=bridge
@@ -56,3 +56,12 @@
 /ip firewall nat add chain=dstnat action=dst-nat protocol=udp dst-port=30002 to-address=192.168.3.52 to-port=30002
 /ip firewall nat add chain=dstnat action=dst-nat protocol=tcp dst-port=30003 to-address=192.168.3.53 to-port=30003
 /ip firewall nat add chain=dstnat action=dst-nat protocol=udp dst-port=30003 to-address=192.168.3.53 to-port=30003
+
+# static dns entries
+/ip dns static add name=mabbox.bytel.fr address=192.168.1.254
+/ip dns static add name=mikrotik.lan address=192.168.3.1
+
+# now the shameful part: mikrotik router os doesn't automatically add local hostnames to the dns...
+/ip dns static add name=akhilleus.lan address=192.168.3.51
+/ip dns static add name=hektor.lan address=192.168.3.52
+/ip dns static add name=aiolos.lan address=192.168.3.53

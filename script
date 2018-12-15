@@ -30,7 +30,6 @@
 /ip firewall filter add chain=forward action=drop
 
 # some more security restrictions
-/ip neighbor discovery-settings set discover-interface-list=none
 /tool mac-server set allowed-interface-list=none
 /tool mac-server mac-winbox set allowed-interface-list=none
 
@@ -47,7 +46,7 @@
 # static dhcp leases for port forwarding
 /ip dhcp-server lease add mac-address=2C:56:DC:98:01:8C address=192.168.3.51
 /ip dhcp-server lease add mac-address=28:C6:3F:4C:75:E8 address=192.168.3.52
-/ip dhcp-server lease add mac-address=5C:51:4F:13:86:2A address=192.168.3.53
+/ip dhcp-server lease add mac-address=3C:6A:A7:52:F5:B7 address=192.168.3.53
 
 # destination nat rules for port forwarding
 /ip firewall nat add chain=dstnat action=dst-nat protocol=tcp dst-port=30001 to-address=192.168.3.51 to-port=30001

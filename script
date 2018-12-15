@@ -39,8 +39,10 @@
 /ip address add address=192.168.1.3/24 interface=ether1
 
 # wireless configuration
+/interface bridge port add bridge=bridge interface=wlan1
 /interface bridge port add bridge=bridge interface=wlan2
 /interface wireless security-profiles set default mode=dynamic-keys authentication-types=wpa2-psk wpa2-pre-shared-key=changeme
+/interface wireless set wlan1 mode=ap-bridge band=2ghz-b/g/n wireless-protocol=802.11 channel-width=20/40mhz-Ce frequency=auto ssid=changeme disabled=no
 /interface wireless set wlan2 mode=ap-bridge band=5ghz-a/n/ac wireless-protocol=802.11 channel-width=20/40/80mhz-Ceee frequency=auto ssid=changeme disabled=no
 
 # static dhcp leases for port forwarding

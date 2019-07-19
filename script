@@ -34,7 +34,7 @@
 /tool mac-server mac-winbox set allowed-interface-list=none
 
 # setting up ether1 and outbound connectivity
-/ip route add dst-address=0.0.0.0/0 gateway=192.168.1.254
+/ip route add dst-address=0.0.0.0/0 gateway=192.168.1.1
 /ip dns set allow-remote-requests=yes servers=8.8.8.8,8.8.4.4
 /ip address add address=192.168.1.3/24 interface=ether1
 
@@ -57,10 +57,6 @@
 /ip firewall nat add chain=dstnat action=dst-nat protocol=udp dst-port=30002 to-address=192.168.3.52 to-port=30002
 /ip firewall nat add chain=dstnat action=dst-nat protocol=tcp dst-port=30003 to-address=192.168.3.53 to-port=30003
 /ip firewall nat add chain=dstnat action=dst-nat protocol=udp dst-port=30003 to-address=192.168.3.53 to-port=30003
-
-# static dns entries
-/ip dns static add name=mabbox.bytel.fr address=192.168.1.254
-/ip dns static add name=mikrotik.lan address=192.168.3.1
 
 # now the shameful part: mikrotik router os doesn't automatically add local hostnames to the dns...
 /ip dns static add name=akhilleus.lan address=192.168.3.51

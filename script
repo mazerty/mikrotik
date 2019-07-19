@@ -46,8 +46,8 @@
 /interface wireless set wlan2 mode=ap-bridge band=5ghz-a/n/ac wireless-protocol=802.11 channel-width=20/40/80mhz-Ceee frequency=auto ssid=changeme disabled=no
 
 # static dhcp leases for port forwarding
-/ip dhcp-server lease add mac-address=2C:56:DC:98:01:8C address=192.168.2.51
-/ip dhcp-server lease add mac-address=28:C6:3F:4C:75:E8 address=192.168.2.52
+/ip dhcp-server lease add mac-address=30:52:CB:53:4F:BD address=192.168.2.51
+/ip dhcp-server lease add mac-address=94:C6:91:17:16:D3 address=192.168.2.52
 /ip dhcp-server lease add mac-address=3C:6A:A7:52:F5:B7 address=192.168.2.53
 
 # destination nat rules for port forwarding
